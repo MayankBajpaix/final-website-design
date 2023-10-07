@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+{% extends 'main.html' %}   
+{% load static %} 
+<html>
+    {% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Good Student</title>
+        <link rel="stylesheet" href="{% static 'base/css-files/home.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: Lato, Arial;
+                margin: 0;
+            }
+            
+            .header {
+                background-color: rgb(42, 42, 42);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 3.5vh;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                transition: top 0.5s;
+                z-index: 100;
+                padding: 1vh;
+            }
+
+            .header-left {
+                position: absolute;
+                left: 4vw;
+                color: white;
+                font-size: 3.5vw;
+                font-weight: bold;
+            }
+
+            .header-right {
+                display: flex;
+                list-style-type: none;
+                position: absolute;
+                right: 6vw;
+            }
+
+            .navigation-buttons {
+                margin-left: 1vw;
+                margin-right: 1vw;
+                color: white;
+                text-decoration: none;
+                font-size: 3.5vw;
+                font-weight: bold;
+            }
+
+            .navigation-buttons:hover {
+                opacity: 0.8;
+                transition: opacity 0.15s;
+            }
+
+            .navigation-buttons:active {
+                opacity: 0.5;
+                transition: opacity 0.15s;
+            }
+
+            .content-container {
+                margin: 9vh 5vh 0 5vh;
+            }
+
+            .title-banner {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+            }
+
+            .title {
+                margin: 0 0 1.5vh 0;
+                color: white;
+                font-size: 8vw;
+                color: rgb(57, 158, 57);
+            }
+
+            .description {
+                font-size: 6vw;
+                text-align: left;
+                font-weight: normal;
+                font-style: italic;
+                color: rgb(133, 133, 133);
+                margin: 0;
+            }
+
+            p {
+                font-size: 5vw;
+                line-height: 1.7;
+            }
+
+            .body-text {
+                margin-top: 2.5vh;
+                margin-bottom: 2.5vh;
+            }
+
+            /* .image {
+                height: 100px;
+                width: 100px;
+            } */
+
+            .break {
+                .break {
+                margin: auto;
+                height: 0.1vh;
+                background-color: rgb(206, 206, 206);
+                margin-top: 10vh;
+                margin-bottom: 10vh;
+                border: none;
+                width: 80vw;
+                border-radius: 1vw;
+            }
+            }
+
+
+            #myBtn {
+                display: none;
+                margin: auto;
+                margin-bottom: 5vh;
+                margin-top: 2vh;
+                text-align: center;
+                z-index: 99;
+                font-size: 5vw;
+                width: 40vw;
+                height: 10vh;
+                color: rgb(57, 158, 57);
+                border: 3px solid rgb(57, 158, 57);
+                background-color: white;
+                cursor: pointer;
+                padding: 2vw 2vw 2vw 2vw;
+                border-radius: 1vh;
+                }
+
+            #myBtn:hover {
+                background-color: #555;
+                }
+
+            
+            @media (min-width: 801px) {
+                .header-left {
+                    font-size: 2.5vh;
+                }
+
+                .header-right {
+                    right: 4vw;
+                    
+                }
+
+                .navigation-buttons {
+                    font-size: 2.5vh;
+                }
+
+                .break {
+                    width: 50vw;
+                }
+
+                #myBtn {
+                    width: 250px;
+                    height: 70px;
+                    font-size: 25px;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                .content-container {
+                    margin: 9vh 15vh 0 15vh;
+                }
+
+                .title {
+                    font-size: 50px;
+                }
+
+                p {
+                    font-size: 25px;
+                }
+
+            }
+
+            @media (min-width: 1200px) {
+                .content-container {
+                    margin: 9vh 20vh 0 20vh;
+                }
+
+                .break {
+                    width: 45vw;
+                }
+            }
+
+            @media (min-width: 1500px) {
+                .content-container {
+                    margin: 9vh 36vh 0 36vh;
+                }
+
+                .break {
+                    margin-top: 2vh;
+                    margin-bottom: 2vh;
+                    width: 40vw;
+                }
+            }
+
+            @media (min-width: 1800px) {
+                .content-container {
+                    margin: 9vh 42vh 0 42vh;
+                }
+
+                #myBtn {
+                    width: 300px;
+                    height: 100px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                .break {
+                    width: 30vw;
+                }
+
+            }
+            
+            @media (min-width: 2000px) {
+                .break {
+                    width: 35vw;
+                }
+            }
+
+            @media (min-width: 2400px) {
+                .title {
+                    font-size: 70px;
+                }
+
+                p {
+                    font-size: 30px;
+                }
+
+                
+            }
+
+            @media (min-width: 3000px) {
+                .title {
+                    font-size: 80px;
+                }
+
+                p {
+                    font-size: 40px;
+                }
+
+                #myBtn {
+                    width: 350px;
+                    height: 120px;
+                    font-size: 35px;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                
+            }
+
+            
+            
+
+        </style>
+
+    </head>
+
+    <body>
+        <div class="main-container" id="navbar">
+            <nav class="header">
+                <div class="header-left">The Good Student</div>
+                <ul class="header-right">
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'home' %}">Home</a></li>
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'about' %}">About</a></li>
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'latest-posts' %}">Latest Posts</a></li>
+                </ul>
+            </nav>
+
+            <div class="content-container">
+                <div class="title-banner">
+                    <h1 class="title">{{post.name}}</h1>
+                    <h3 class="description">{{description | safe}}</h3>
+                </div>
+                <hr class="break">
+                <p class="body-text">{{body1 | safe}}</p>
+                <p class="body-text">{{body2 | safe}}</p>
+                <p class="body-text">{{body3 | safe}}</p>
+                <hr class="break">
+                <br>
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Return to Top</button>
+            </div>
+        </div>
+        
+        <script>
+            // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+        </script>
+        
+    </body>
+    {% endblock content %}
+</html>

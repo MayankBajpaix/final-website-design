@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'main.html' %}    
+    {% load static %}
+    {% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Good Student</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+        <style>            
+            body {
+                font-family: Lato, Arial;
+                margin: 0;
+            }
+
+        
+            .content-container {
+                margin: 2vh 0 0 0;
+            }
+
+            .image-container {
+                background-color: grey;
+                height: 200px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+                
+            }
+
+            .banner-image {
+                height: 50px;
+                width: 50px;
+                object-fit: cover;
+            }
+
+            .banner-writing {
+                margin: 0;
+            }
+
+            .topic-link {
+                padding: 0;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                display: block;
+                font-size: 10px;
+                background-color: rgb(19, 56, 190);
+                
+            }
+
+            .topic-link-link {
+                text-decoration: underline;
+                color: black;
+                border: 0;
+                padding: 5px;
+                font-size: 4vw;
+                margin-bottom: 1vh;
+                
+            }
+
+            .browse-topics {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: -2vh;
+            }
+
+            .header {
+                background-color: rgb(42, 42, 42);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 3.5vh;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                transition: top 0.5s;
+                z-index: 100;
+                padding: 1vh;
+            }
+
+            .header-left {
+                position: absolute;
+                left: 4vw;
+                color: white;
+                font-size: 3.5vw;
+                font-weight: bold;
+            }
+
+            .header-right {
+                display: flex;
+                list-style-type: none;
+                position: absolute;
+                right: 6vw;
+            }
+
+            .navigation-buttons {
+                margin-left: 1vw;
+                margin-right: 1vw;
+                color: white;
+                text-decoration: none;
+                font-size: 3.5vw;
+                font-weight: bold;
+            }
+
+            .navigation-buttons:hover {
+                opacity: 0.8;
+                transition: opacity 0.15s;
+            }
+
+            .navigation-buttons:active {
+                opacity: 0.5;
+                transition: opacity 0.15s;
+            }
+
+            .title {
+                margin-top: 5vh;
+                font-size: 11vw;
+                margin-bottom: 0;
+                color: rgb(255, 255, 255);
+                background-color: rgb(57, 119, 57);
+                width: 100%;
+                padding-top: 1vh;
+                padding-bottom: 1vh;
+                text-align: center;
+                font-size: 4vw;
+            }
+
+            .topic-title {
+                color: rgb(80, 80, 80);
+                font-weight: bold;
+                margin-bottom: 2vh;
+                font-size: 6vw;
+            }
+
+            .browse-topic-box {
+                display: grid;
+                grid-template-columns: 1 1 1;
+                
+            }
+
+            .break {
+                margin: auto;
+                height: 0.1vh;
+                background-color: rgb(206, 206, 206);
+                margin-top: 5vh;
+                margin-bottom: 5vh;
+                border: none;
+                width: 80vw;
+                border-radius: 1vw;
+            }
+
+
+            .posts {
+                margin: 0 10vw 0vw 10vw;
+            }
+
+            .post-title {
+                text-decoration: 0;
+                color: black;
+                text-align: center;
+                color: rgb(57, 158, 57);
+                font-size: 6.5vw;
+            }
+
+            .post-title:hover {
+                text-decoration: underline;
+            }
+
+            .post-title:active {
+                color: rgb(174, 209, 174);
+            }
+
+            .post-description {
+                font-weight: 0;
+                color: rgb(63, 63, 63);
+                text-align: center;
+                font-size: 4vw;
+            }
+
+
+        @media (min-width: 801px) {
+            .header-left {
+                font-size: 2.5vh;
+            }
+
+            .header-right {
+                right: 4vw;
+                
+            }
+
+            .navigation-buttons {
+                font-size: 2.5vh;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+
+            .topic-title {
+                font-size: 30px;
+            }
+
+            .topic-link-link {
+                font-size: 20px;
+            }
+
+            .post-title {
+                font-size: 30px;
+            }
+
+            .post-description {
+                font-size: 20px;
+                margin-left: 11vw;
+                margin-right: 11vw;
+            }
+
+            .break {
+                height: 0.2vh;
+                width: 65vw;
+            }
+
+        }
+
+        @media (min-width: 2000px) {
+            .topic-title {
+                font-size: 45px;
+            }
+
+            .topic-link-link {
+                font-size: 25px;
+            }
+
+            .post-title {
+                font-size: 45px;
+            }
+
+            .post-description {
+                font-size: 25px;
+            }
+        }
+
+        @media (min-width: 2500px) {
+            .title {
+                font-size: 40px;
+            }
+
+            .topic-title {
+                font-size: 55px;
+            }
+
+            .topic-link-link {
+                font-size: 30px;
+            }
+
+            .post-title {
+                font-size: 55px;
+            }
+
+            .post-description {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 3000px) {
+            .title {
+                font-size: 50px;
+            }
+            
+            .topic-title {
+                font-size: 65px;
+            }
+
+            .topic-link-link {
+                font-size: 45px;
+            }
+
+            .post-title {
+                font-size: 65px;
+            }
+
+            .post-description {
+                font-size: 45px;
+            }
+        }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div class="main-container">
+            <nav class="header">
+                <div class="header-left">The Good Student</div>
+                <ul class="header-right">
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'home' %}">Home</a></li>
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'about' %}">About</a></li>
+                    <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'latest-posts' %}">Latest Posts</a></li>
+                </ul>
+            </nav>
+     
+            <div class="title">
+                <h1>Latest Posts</h1>
+            </div>
+        <article class="content-container">
+            <div class="browse-topics">
+                <h2 class="topic-title">Sort by Topics</h2>
+                <nav class="browse-topic-box">
+                <a class="topic-link-link" href="{% url 'latest-posts' %}">All</a>
+                {% for topic in topics %}
+                <a class="topic-link-link" href="{% url 'latest-posts' %}?q={{topic.name}}">{{topic}}</a>
+                {% endfor %}
+                </nav>
+            </div>
+
+            <hr class="break">
+
+            <div class="posts">
+                {% for post in post %}
+                <h2 class="post-title"><a class="post-title" href="{% url 'post' post.url %}">{{post.name}}</a></h2>
+                <p class="post-description">{{post.description}}</p>
+                <hr class="break">
+                {% endfor %}
+            </div>
+        
+        </article>
+    </div>
+    </body>
+    {% endblock content %}
+</html>

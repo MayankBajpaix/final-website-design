@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">   
+    {% load static %}
+    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Student</title>
+    <link rel="stylesheet" href="{% static 'base/css-files/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Lato, Arial;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: rgb(42, 42, 42);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.5vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            transition: top 0.5s;
+            z-index: 100;
+            padding: 1vh;
+        }
+
+        .header-left {
+            position: absolute;
+            left: 4vw;
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+        }
+
+        .header-right {
+            display: flex;
+            list-style-type: none;
+            position: absolute;
+            right: 6vw;
+        }
+
+        .navigation-buttons {
+            margin-left: 1vw;
+            margin-right: 1vw;
+            color: white;
+            text-decoration: none;
+            font-size: 3.5vw;
+            font-weight: bold;
+        }
+
+        .navigation-buttons:hover {
+            opacity: 0.8;
+            transition: opacity 0.15s;
+        }
+
+        .navigation-buttons:active {
+            opacity: 0.5;
+            transition: opacity 0.15s;
+        }
+
+        .hero-banner {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            /* rgba(31, 102, 84, 0.6), rgba(94, 17, 104, 0.5) */
+            background-image: linear-gradient(rgb(69, 121, 69), rgba(152, 204, 145, 0.6)), url("{% static 'base/images/Hero green.jpg' %}");
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+        
+        .hero-text {
+            margin-top: 11vh;
+            margin-left: 8vw;
+            margin-right: 8vw;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 13vw;
+            margin-bottom: 5vh;
+            margin-left: 8vw;
+            margin-right: 8vw;
+        }
+
+        .hero-body {
+            font-size: 4vw;
+            margin-bottom: 0;
+            margin-left: 8vw;
+            margin-right: 8vw;
+        }
+
+        .nav-box-1 {
+            color: white;
+            margin-left: 16vw;
+            margin-right: 16vw;
+            background-color: rgb(42, 42, 42);
+            aspect-ratio: 1.2 / 1;
+            width: 65vw;
+            /* border-style: solid;
+            border-width: 3px;
+            border-color: white; */
+            border-radius: 2vw;
+            margin-bottom: 8vh;
+        }
+        
+        .nav-box-1-image {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            background-position: center;
+            border-radius: 2vw 2vw 0 0;
+        }
+
+        .nav-box-1-title {
+            padding: 6%;
+            font-size: 4vw;
+        }
+
+        .nav-box-2 {
+            color: white;
+            margin-left: 16vw;
+            margin-right: 16vw;
+            background-color: rgb(42, 42, 42);
+            aspect-ratio: 1.2 / 1;
+            width: 65vw;
+            /* border-style: solid;
+            border-width: 3px;
+            border-color: white; */
+            border-radius: 2vw;
+            margin-bottom: 0;
+        }
+        
+        .nav-box-2-image {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            background-position: center;
+            border-radius: 2vw 2vw 0 0;
+        }
+
+        .nav-box-2-title {
+            padding: 6%;
+            font-size: 4vw;
+        }
+
+        a:link {
+        text-decoration: none;}
+
+        .feature-article {
+            margin-bottom: 5vh; 
+            font-size: 7vw;
+        }
+
+        .break {
+            margin: auto;
+            height: 0.6vw;
+            background-color: rgb(236, 236, 236);
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            border: none;
+            width: 80vw;
+            border-radius: 1vw;
+        }
+
+        .footer-new {
+            height: 6vh;
+            background-color: rgb(42, 42, 42);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 4vw;
+        }
+
+        /* .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(42, 42, 42);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 7vh;
+            
+        }
+
+        .footer-text {
+            color: white;
+            font-size: 5vw;
+            font-weight: bold;
+            text-align: center;
+        } */
+            
+        @media (min-width: 551px) and (max-width: 800px) {
+
+        .nav-box-1 {
+            margin-top: 6vh;
+        }
+
+        .nav-box-2 {
+            margin-bottom: 15vh;
+            margin-top: 8vh;
+        }
+
+        /* .header-left {
+            font-size: 2.5vh;
+        }
+
+        .header-right {
+            right: 4vw;
+            
+        }
+
+        .navigation-buttons {
+            font-size: 2.5vh;
+        } */
+
+        .hero-text {
+            margin-top: 10vh;
+            margin-left: 8vw;
+            margin-right: 8vw;
+            color: white;
+            text-align: center;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 11vw;
+            margin-bottom: 3.5vh;
+            margin-left: 8vw;
+            margin-right: 8vw;
+            margin-top: 0vh;
+        }
+
+
+        .footer {
+            height: 10vh;
+            
+        }
+
+        .footer-new {
+            font-size: 20px;
+        }
+        }
+
+        
+        @media (min-width: 801px) {
+        .header-left {
+            font-size: 2.5vh;
+        }
+
+        .header-right {
+            right: 4vw;
+            
+        }
+
+        .navigation-buttons {
+            font-size: 2.5vh;
+        }
+
+        .footer-text {
+            font-size: 3vh;
+        }
+
+        .footer {
+            bottom: 0;
+        }
+
+        .hero-title {
+            font-size: 90px;
+        }
+
+        .hero-body {
+            font-size: 3.6vh;
+        }
+
+        .feature-article {
+            font-size: 50px;
+        }
+
+        .nav-box-1 {
+            margin-left: 19vw;
+            margin-right: 19vw;
+            width: 59vw;
+        }
+
+        .nav-box-2 {
+            margin-left: 19vw;
+            margin-right: 19vw;
+            width: 59vw;
+        }
+        }
+
+        @media (min-width: 1006px) and (max-width: 1117px) {
+            .hero-title {
+                font-size: 100px;
+            }
+
+            .footer-new {
+                font-size: 2.75vw;
+            }
+
+        }
+
+        @media (min-width: 1118px) {
+            .hero-title {
+                font-size: 100px;
+                margin-bottom: 7.5vh;
+            }
+
+            .feature-article {
+                margin-bottom: 4vh;
+            }
+
+            .nav-box-1-title {
+                font-size: 40px;
+            }
+
+            .nav-box-2-title {
+                font-size: 40px;
+            }
+
+            .footer-new {
+                font-size: 2.2vw;
+            }
+
+        }
+
+        @media (min-width: 1500px) {
+            .break {
+            margin-top: 6vh;
+            margin-bottom: 6vh;
+            }
+
+            .feature-article {
+                margin-bottom: 6vh;
+            }
+
+            .nav-box-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10vh;
+            }
+
+            .nav-box-1 {
+                margin: 0;
+                width: 70%;
+                margin-left: 20%;
+            }
+
+            .nav-box-2 {
+                margin: 0;
+                width: 70%;
+                margin-left: 10%;
+            }
+        }
+
+        @media (min-width: 1538px) {
+            .nav-box-1-title {
+                font-size: 35px;
+            }
+
+        }
+
+        @media (min-width: 1800px) {
+            .hero-title {
+                font-size: 120px;
+            }
+
+            .footer-new {
+                font-size: 1.5vw;
+            }
+        }
+
+        @media (min-width: 2600px) {
+
+            .nav-box-1 {
+                margin: 0;
+                width: 70%;
+                margin-left: 25%;
+            }
+
+            .nav-box-2 {
+                margin: 0;
+                width: 70%;
+                margin-left: 5%;
+            }
+
+            .footer-new {
+                font-size: 1.5vw;
+            }
+        }
+
+        @media (min-width: 2800px) {
+
+            .nav-box-1 {
+                margin: 0;
+                width: 70%;
+                margin-left: 40%;
+            }
+
+            .nav-box-2 {
+                margin: 0;
+                width: 70%;
+                margin-left: -10%;
+            }
+
+            }
+
+        @media (min-width: 3300px) {
+
+            .nav-box-1 {
+                margin: 0;
+                width: 70%;
+                margin-left: 50%;
+            }
+
+            .nav-box-2 {
+                margin: 0;
+                width: 70%;
+                margin-left: -20%;
+            }
+
+            .footer-new {
+                font-size: 1.25vw;
+            }
+
+            }
+
+            @media (min-width: 3600px) {
+
+            .nav-box-1 {
+                margin: 0;
+                width: 70%;
+                margin-left: 60%;
+            }
+
+            .nav-box-2 {
+                margin: 0;
+                width: 70%;
+                margin-left: -30%;
+            }
+            
+            .footer-new {
+                font-size: 1vw;
+            }
+            }
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="main-container" id="navbar">
+        <nav class="header">
+            <div class="header-left">The Good Student</div>
+            <ul class="header-right">
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'home' %}">Home</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'about' %}">About</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'latest-posts' %}">Latest Posts</a></li>
+            </ul>
+        </nav>
+        
+        <article class="hero-banner">
+            <section class="hero-text">
+                <h1 class="hero-title">Knowledge is Power</h1>
+                <p class="hero-body">Nunc porttitor leo eget iaculis egestas. Duis nec volutpat urna. Sed viverra nibh tortor, consectetur efficitur mi gravida vel. Aliquam id risus ipsum. Praesent non quam tempor, sagittis arcu nec, bibendum dui.</p>
+
+                <hr class="break">
+                <div class="feature-article"><h2>Featured Articles</h2></div>
+            </section>
+                <div class="nav-box-container">
+                <a href="{% url 'latest-posts' %}"><div class="nav-box-1">
+                    <img class="nav-box-1-image" src="{% static 'base/images/AI.jpg' %}">
+                    <div class="nav-title-container">
+                    <h2 class="nav-box-1-title">Boosting productivity with AI</h2>
+                    </div>
+                </div></a>
+
+                <a href="{% url 'latest-posts' %}"><div class="nav-box-2">
+                    <img class="nav-box-2-image" src="{% static 'base/images/nav-box-2-image.jpg' %}">
+                    <div class="nav-title-container">
+                    <h2 class="nav-box-2-title">Setting the mood for study</h2>
+                </div>
+                </div></a>
+                
+                </div>
+                <hr class="break">
+                <div class="footer-new">The Good Student</div>
+                <!-- <footer class="footer">
+                    <p class="footer-text">The Good Student</p>
+                </footer> -->
+            
+        </article>
+
+        
+        
+        
+
+    </div>
+    
+    
+</body>
+{% endblock content %}
+</html>

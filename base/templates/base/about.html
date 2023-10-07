@@ -1,0 +1,292 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Good Student</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+        <style>
+            body {
+            background-color: rgb(255, 255, 248);
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Lato, Arial;
+        }
+
+        .main-container {
+            width: 100%;
+        }
+
+        
+        .header {
+            background-color: rgb(42, 42, 42);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.5vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            transition: top 0.5s;
+            z-index: 100;
+            padding: 1vh;
+        }
+
+        .header-left {
+            position: absolute;
+            left: 4vw;
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+        }
+
+        .header-right {
+            display: flex;
+            list-style-type: none;
+            position: absolute;
+            right: 6vw;
+        }
+
+        .navigation-buttons {
+            margin-left: 1vw;
+            margin-right: 1vw;
+            color: white;
+            text-decoration: none;
+            font-size: 3.5vw;
+            font-weight: bold;
+        }
+
+        .navigation-buttons:hover {
+            opacity: 0.8;
+            transition: opacity 0.15s;
+        }
+
+        .navigation-buttons:active {
+            opacity: 0.5;
+            transition: opacity 0.15s;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            margin-top: 3.5vh;
+        }
+
+        .title {
+            margin-top: 2vh;
+            font-size: 11vw;
+            margin-bottom: 3vh;
+            color: rgb(255, 255, 255);
+            background-color: rgb(57, 119, 57);
+            width: 100%;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            text-align: center;
+            
+        }
+
+        .body-container {
+            margin-left: 7.5vw;
+            margin-right: 7.5vw;
+            font-size: 2.5vh;
+            margin-bottom: 6vh;
+        }
+
+        .body {
+            color: rgb(71, 71, 71);
+        }
+
+                
+        .green-span {
+            color: rgb(57, 158, 57);
+            font-weight: bold;
+        }
+
+        /* .footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(42, 42, 42);
+            position: absolute;
+            bottom: 0.00001;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 5vh;
+          
+        }
+
+        .footer-text {
+            color: white;
+            font-size: 4vw;
+            font-weight: bold;
+            text-align: center;
+        } */
+
+
+        
+
+
+        
+            
+        @media (min-width: 700px) and (max-width: 950px){
+            .title {
+                font-size: 80px;
+            }
+            
+            .header-left {
+                font-size: 2.5vh;
+            }
+
+            .header-right {
+                right: 4vw;
+                
+            }
+
+            .navigation-buttons {
+                font-size: 2.5vh;
+            }
+
+            .footer-text {
+                font-size: 3vh;
+            }
+
+            .footer {
+                bottom: 0;
+            }
+        }
+
+        @media (min-width: 951px) {
+            .title {
+                font-size: 70px;
+            }
+
+            .header-left {
+                font-size: 2.5vh;
+            }
+
+            .header-right {
+                right: 4vw;
+                
+            }
+
+            .navigation-buttons {
+                font-size: 2.5vh;
+            }
+
+            .footer-text {
+                font-size: 3vh;
+            }
+
+            .footer {
+                bottom: 0;
+            }
+        }
+
+        @media (min-width: 950px) and (max-width: 1500px) {
+
+        .body {
+            font-size: 2.8vh;
+        }
+
+        }
+
+        @media (min-width: 1501px) and (max-width: 1700px) {
+
+            .body {
+                font-size: 3vh;
+            }
+            
+        }
+
+        @media (min-width: 1701px) and (max-width: 1900px) {
+
+            .body {
+                font-size: 3.2vh;
+            }
+            
+        }
+
+        @media (min-width: 1901px) and (max-width: 2400px) {
+
+        .body {
+            font-size: 3.4vh;
+        }
+
+        }
+
+        @media (min-width: 2401px) and (max-width: 3300px) {
+
+        .body {
+            font-size: 3.4vh;
+        }
+
+        }
+
+        @media (min-width: 3301px) and (max-width: 10000px) {
+
+        .body {
+            font-size: 3.5vh;
+        }
+
+        .title {
+            font-size: 120px;
+        }
+
+        }
+
+
+
+        
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="main-container" id="navbar">
+        <nav class="header">
+            <div class="header-left">The Good Student</div>
+            <ul class="header-right">
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'home' %}">Home</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'about' %}">About</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'latest-posts' %}">Latest Posts</a></li>
+            </ul>
+        </nav>
+        <section class="content">
+            <h1 class="title">About Us</h1>
+        </section>
+        <div class="body-container">
+            <p class="body">Welcome to <span class="green-span">The Good Student</span>, your go-to destination for all things education! We are passionate about learning and committed to helping you succeed in your academic journey. <br><br>
+                At <span class="green-span">The Good Student</span>, we understand that education is the key to unlocking your full potential and achieving your dreams. That's why we're working to create a comprehensive resource hub filled with insightful articles and resources to support you every step of the way. <br><br>
+                We believe that education should be inclusive and accessible to all. That's why we offer our content free of charge, so you can access the tools and knowledge you need without any barriers.
+                <br><br>Thank you for joining us on this educational adventure. We invite you to explore our blog, engage with our community, and let us be your trusted companion on your path to academic excellence. Together, we can unlock the doors to a world of knowledge and opportunity. <span class="green-span">Welcome to The Good Student</span>!
+            </p>
+        </div>
+
+        <!-- <footer class="footer">
+            <p class="footer-text">The Good Student</p>
+        </footer> -->
+
+        </div>
+        
+    </body>
+</html>
+{% endblock content %}

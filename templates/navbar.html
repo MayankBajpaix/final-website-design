@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+        <style>
+            body {
+                margin: 0;
+                font-family: Lato, Arial;
+            }
+            
+            .header {
+                height: 62px;
+                background-color: rgb(19, 56, 190);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0;
+            }
+
+            .header-left {
+                margin-left: 80px;
+                color: white;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            .navigation-buttons {
+                display: inline-block;
+                color: white;
+                position: relative;
+                margin-left: 0px;
+                margin-right: 40px;
+                font-weight: bold;
+                font-size: 20px;
+                text-decoration: 0;
+                transition: opacity 0.15s;
+            }
+
+            .navigation-buttons:hover {
+                opacity: 0.8;
+                transition: opacity 0.15s;
+            }
+
+            .navigation-buttons:active {
+                opacity: 0.5;
+                transition: opacity 0.15s;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <nav class="header">
+            <div class="header-left">The Good Student</div>
+
+            <ul>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'home' %}">Home</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'about' %}">About</a></li>
+                <li class="navigation-buttons" ><a class="navigation-buttons" href="{% url 'latest-posts' %}">Latest Posts</a></li>
+            </ul>
+            
+        </nav>
+
+
+
+
+    </body>
+
+
+</html>
