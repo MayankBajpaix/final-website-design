@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'http://127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -79,8 +79,13 @@ WSGI_APPLICATION = 'thegoodstudent.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'KN5OimewkWLfafqveAOm',
+        'HOST': 'containers-us-west-187.railway.app',
+        'PORT': '6617',
+        
     }
 }
 
@@ -120,19 +125,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'thegoodstudent Blog Test/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'base/static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+MEDIA_URL = 'thegoodstudent/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/base/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 30
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = False
+SECURE_HSTS_SECONDS = 0
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
 SECRET_KEY = 'erotndiupfngiuewuruisebriuebriusbdfibsiurbeuirur#l=03xwd9=q!t!9br7al+cw@cg236js-rrc=-b&+5wnaf39042ujnekjbi432bsdiusbueasf'
 
 
